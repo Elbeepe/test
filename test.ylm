@@ -1,7 +1,8 @@
----
-- hosts: my_servers
-  become: true
+- name: Install nginx
+  hosts: webservers
+  become: yes
   tasks:
-    - name: Print OS Info
-      ansible.builtin.package
-        name: apache2
+    - name: Install nginx
+      apt:
+        name: nginx
+        state: present
